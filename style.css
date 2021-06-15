@@ -7,8 +7,25 @@
   box-sizing: border-box;
 }
 
-h1 {
-  font-size: 3.6rem;
+h1.glow {
+  color: white;
+  font-size: 5.6rem;
+  text-align: center;
+  padding-left: 12rem;
+  transform: translateY(3rem) rotate(5deg);
+  -webkit-animation: glow 1s ease-in-out infinite alternate;
+  -moz-animation: glow 1s ease-in-out infinite alternate;
+  animation: glow 1s ease-in-out infinite alternate;
+}
+
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #f77e05, 0 0 40px #f77e05, 0 0 50px #f77e05, 0 0 60px #f77e05, 0 0 70px #f77e05;
+  }
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 30px #f6a206, 0 0 40px #f6a206, 0 0 50px #f6a206, 0 0 60px #f6a206, 0 0 70px #f6a206, 0 0 80px #f6a206;
+  }
 }
 
 #blocker {
@@ -20,6 +37,10 @@ h1 {
 
 #loading-text {
   text-align: center;
+}
+
+#btn-reload {
+  display: none;
 }
 
 .loader {
@@ -34,6 +55,30 @@ h1 {
   width: 120px;
   height: 120px;
   animation: spin 2s linear infinite;
+}
+
+.song-player {
+  opacity: 0;
+}
+
+.bg-img {
+  position: absolute;
+  background-image: url('https://media.tenor.com/images/f047df15315c12e886d55b68a468e511/tenor.gif');
+  background-size: 5%;
+  background-repeat: repeat;
+  clip-path: polygon(0 0, 0 100%,0 0%,0 0);
+  animation: slow-load 15s linear forwards;
+  width: 100%;
+  height: 100%;
+}
+
+
+@keyframes slow-load {
+  0% { clip-path: polygon(0 0, 0 0%, 100% 0%, 100% 0); }
+  10% { clip-path: polygon(0 0%, 0 10%, 100% 10%, 100% 0); }
+  30% { clip-path: polygon(0 0%, 0 30%, 100% 30%, 100% 0); }
+  70% { clip-path: polygon(0 0%, 0 70%, 100% 70%, 100% 0); }
+  100% { clip-path: polygon(0 0%, 0 100%, 100% 100%, 100% 0); }
 }
 
 @keyframes spin {
