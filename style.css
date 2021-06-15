@@ -10,6 +10,7 @@
 h1.glow {
   color: white;
   font-size: 5.6rem;
+  margin-top: 0;
   text-align: center;
   padding-left: 12rem;
   transform: translateY(3rem) rotate(5deg);
