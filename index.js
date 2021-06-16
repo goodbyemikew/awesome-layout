@@ -1,45 +1,52 @@
+var timeout;
+var delay = 5000;
+var contentContainer = document.querySelector('.body');
+var text = document.getElementById('loading-text');
+var blockElement = document.getElementById('blocker');
+var btnReload = document.getElementById('btn-reload');
+
 function sleep(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms));
+  timeout = new Promise(resolve => setTimeout(resolve, ms));
+  return timeout;
 }
 
 async function block() {
-  let text = document.getElementById('loading-text');
-  let block = document.getElementById('blocker');
-  let btnReload = document.getElementById('btn-reload')
-  let timeout = 100;
-  let isPlaying = false;
-  btnReload.addEventListener('click', playMusic);
+  var isSecondLoad = localStorage.getItem('isSecondLoad');
+  checkLocalStorage();
 
-  if (localStorage.getItem('reload')) {
-  	text.innerHTML = 'Ok, thanks, should be working now';
-  	await sleep(timeout);
-  	block.remove();
-  	return;
+  if (!isSecondLoad) {
+    await sleep(delay);
+    text.innerHTML = 'Loading...';
+    await sleep(delay);
+    text.innerHTML = "Just one more second and that's it";
+    await sleep(delay);
+    text.innerHTML = "Almost done, too many people are visiting this page at the moment";
+    await sleep(delay);
+    text.innerHTML = "One little png and that's all, I swear";
+    await sleep(delay);
+    text.innerHTML = "Sorry, Mike, it was working yesterday";
+    await sleep(delay);
+    text.innerHTML = "Google PageSpeed gave me 99";
+    await sleep(delay);
+    text.innerHTML = "Somebody, click Reload!!!";
+    btnReload.style.display = 'block';
   }
-
-  await sleep(timeout);
-  text.innerHTML = 'Loading...';
-  await sleep(timeout);
-  text.innerHTML = "Just one more second and that's it";
-  await sleep(timeout);
-  text.innerHTML = "Almost done, too many people are visiting this page at the moment";
-  await sleep(timeout);
-  text.innerHTML = "One little png and that's all, I swear";
-  await sleep(timeout);
-  text.innerHTML = "Sorry, Mike, it was working yesterday";
-  await sleep(timeout);
-  text.innerHTML = "Google PageSpeed gave me 99";
-  await sleep(timeout);
-  text.innerHTML = "Somebody, click Reload!!!";
-  btnReload.style.display = 'block';
 }
 
-async function checkLocalStorage({ text, timeout, block }) {
-  if (localStorage.getItem('reload')) {
-  	text.innerHTML = 'Ok, thanks, should be working now';
-  	await sleep(timeout);
-  	block.remove();
-  	return;
+async function checkLocalStorage() {
+  var reloadStorage = localStorage.getItem('reload');
+  var isSecondLoad = localStorage.getItem('isSecondLoad');
+
+  if (reloadStorage) { 
+    if(isSecondLoad) {
+      clearTimeout(timeout);
+      text.innerHTML = `Ooops something went wrong.<br>
+        These devs can't do one thing right!<br>
+        Click Reload now!`;
+      btnReload.style.display = 'block';
+      return
+    }
+    return { reloadStorage, isSecondLoad };
   }
 }
 
@@ -64,14 +71,22 @@ function getRandomNumber(min, max) {
 }
 
 function playMusic() {
-  console.log('trigger')
-  localStorage.setItem('reload', 1);
-  let audio = document.getElementById('audio');
+  var audio = document.getElementById('audio');
   if (audio.paused) {
     audio.currentTime = 120;
     audio.play();
   }
 }
 
+function showPage() {
+  localStorage.setItem('reload', 1);
+  localStorage.setItem('isSecondLoad', 1);
+
+  blockElement.remove();
+  contentContainer.style.display = 'block';
+  playMusic();
+}
+
 block();
 randomChatBoxPosition();
+btnReload.addEventListener('click', showPage);

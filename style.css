@@ -39,8 +39,14 @@ h1.glow {
   text-align: center;
 }
 
-#btn-reload {
+#btn-reload,
+.body {
   display: none;
+}
+
+#btn-reload {
+  font-size: 0.5rem;
+  margin: 7rem auto 0;
 }
 
 .loader {
