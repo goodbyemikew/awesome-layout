@@ -19,7 +19,6 @@ h1.glow {
   animation: glow 1s ease-in-out infinite alternate;
 }
 
-
 @keyframes glow {
   from {
     text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #f77e05, 0 0 40px #f77e05, 0 0 50px #f77e05, 0 0 60px #f77e05, 0 0 70px #f77e05;
@@ -67,27 +66,130 @@ h1.glow {
   background-image: url('https://media.tenor.com/images/f047df15315c12e886d55b68a468e511/tenor.gif');
   background-size: 5%;
   background-repeat: repeat;
-  clip-path: polygon(0 0, 0 100%,0 0%,0 0);
+  clip-path: polygon(0 0, 0 100%, 0 0%, 0 0);
   animation: slow-load 15s linear forwards;
   width: 100%;
   height: 100%;
 }
 
-
 @keyframes slow-load {
-  0% { clip-path: polygon(0 0, 0 0%, 100% 0%, 100% 0); }
-  10% { clip-path: polygon(0 0%, 0 10%, 100% 10%, 100% 0); }
-  30% { clip-path: polygon(0 0%, 0 30%, 100% 30%, 100% 0); }
-  70% { clip-path: polygon(0 0%, 0 70%, 100% 70%, 100% 0); }
-  100% { clip-path: polygon(0 0%, 0 100%, 100% 100%, 100% 0); }
+  0% {
+    clip-path: polygon(0 0, 0 0%, 100% 0%, 100% 0);
+  }
+  10% {
+    clip-path: polygon(0 0%, 0 10%, 100% 10%, 100% 0);
+  }
+  30% {
+    clip-path: polygon(0 0%, 0 30%, 100% 30%, 100% 0);
+  }
+  70% {
+    clip-path: polygon(0 0%, 0 70%, 100% 70%, 100% 0);
+  }
+  100% {
+    clip-path: polygon(0 0%, 0 100%, 100% 100%, 100% 0);
+  }
 }
 
 @keyframes spin {
   0% {
     transform: rotate(0deg);
   }
-
   100% {
     transform: rotate(360deg);
+  }
+}
+
+
+.chat-box, .chat-box:after {
+  transition: all .4s ease-in-out
+}
+
+.chat-box {
+  width: auto;
+  border-radius: 3px;
+  padding: 2px 8px;
+  font-size: 12px;
+  background: #fff;
+  transform: translateZ(0);
+  border: 1px solid #A8A8A8;
+  display: inline-block;
+  position: absolute;
+  top: 100px;
+  left: 100px;
+}
+
+.chat-box:after, .chat-box:before {
+  position: absolute;
+  border-style: solid;
+  content: ""
+}
+
+.chat-box:before {
+  border-width: 10px 11px 0 0;
+  border-color: #A8A8A8 transparent transparent;
+  left: 7px;
+  bottom: -10px
+}
+
+.chat-box:after {
+  border-width: 9px 8px 0 0;
+  border-color: #fff transparent transparent;
+  left: 8px;
+  bottom: -8px
+}
+
+.chat-box:hover {
+  background: #ddd;
+  animation-name: hvr-pulse-grow;
+  animation-duration: .3s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate
+}
+
+.chat-box:hover:after {
+  border-color: #ddd transparent transparent !important;
+}
+
+.animated-chat {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+  animation-timing-function: ease-in;
+}
+
+@keyframes tada {
+  0% {
+    transform: scale(1);
+  }
+  10%, 20% {
+    transform: scale(.9)rotate(-3deg);
+  }
+  30%, 50%, 70%, 90% {
+    transform: scale(1.1)rotate(3deg);
+  }
+  40%, 60%, 80% {
+    transform: scale(1.1)rotate(-3deg);
+  }
+  100% {
+    transform: scale(1)rotate(0);
+  }
+}
+
+.tada {
+  -webkit-animation-name: tada;
+  animation-name: tada;
+}
+
+@-webkit-keyframes hvr-pulse-grow {
+  to {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+}
+
+@keyframes hvr-pulse-grow {
+  to {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
   }
 }

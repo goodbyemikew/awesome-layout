@@ -43,6 +43,26 @@ async function checkLocalStorage({ text, timeout, block }) {
   }
 }
 
+function randomChatBoxPosition() {
+  var boxes = document.getElementsByClassName('chat-box');
+  var winWidth = window.innerWidth;
+  var winHeight = window.innerHeight;
+
+  for ( var i=0; i < boxes.length; i++ ) {
+    var currentBox = boxes[i];
+
+    randomTop = getRandomNumber(0, winHeight);
+    randomLeft = getRandomNumber(0, winWidth);
+
+    currentBox.style.top = randomTop +"px";
+    currentBox.style.left = randomLeft +"px";
+  }
+}
+
+function getRandomNumber(min, max) {
+  return Math.random() * (max - min) + min;
+}
+
 function playMusic() {
   console.log('trigger')
   localStorage.setItem('reload', 1);
@@ -54,3 +74,4 @@ function playMusic() {
 }
 
 block();
+randomChatBoxPosition();
