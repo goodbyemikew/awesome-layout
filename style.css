@@ -13,7 +13,7 @@ h1.glow {
   margin-top: 0;
   text-align: center;
   padding-left: 12rem;
-  transform: translateY(3rem);
+  transform: translateY(3rem) rotate(5deg);
   -webkit-animation: glow 1s ease-in-out infinite alternate;
   -moz-animation: glow 1s ease-in-out infinite alternate;
   animation: glow 1s ease-in-out infinite alternate;
@@ -73,6 +73,26 @@ h1.glow {
 
 .body {
   cursor: help;
+  min-height: 250vh;
+  position: relative;
+}
+
+.matts-cat {
+  position: absolute;
+  right: 5%;
+  top: 10%;
+  width: 30rem;
+  transform: rotate(20deg);
+  z-index: 1;
+}
+
+.eyes {
+  position: absolute;
+  left: 0;
+}
+
+.matts-cat:hover .eyes {
+  transform: scale(1.5) translateY(14px) translateX(-2px);
 }
 
 .loader {
@@ -98,7 +118,7 @@ h1.glow {
   background-size: 5%;
   background-repeat: repeat;
   clip-path: polygon(0 0, 0 100%, 0 0%, 0 0);
-  animation: slow-load 15s linear forwards;
+  animation: slow-load 25s linear forwards;
   width: 100%;
   height: 100%;
 }
