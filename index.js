@@ -6,7 +6,7 @@ var blockElement = document.getElementById('blocker');
 var btnReload = document.getElementById('btn-reload');
 
 function sleep(ms) {
-  timeout = new Promise(resolve => setTimeout(resolve, ms));
+  timeout = new Promise((resolve) => setTimeout(resolve, ms));
   return timeout;
 }
 
@@ -20,15 +20,15 @@ async function block() {
     await sleep(delay);
     text.innerHTML = "Just one more second and that's it";
     await sleep(delay);
-    text.innerHTML = "Almost done, too many people are visiting this page at the moment";
+    text.innerHTML = 'Almost done, too many people are visiting this page at the moment';
     await sleep(delay);
     text.innerHTML = "One little png and that's all, I swear";
     await sleep(delay);
-    text.innerHTML = "Sorry, Mike, it was working yesterday";
+    text.innerHTML = 'Sorry, Mike, it was working yesterday';
     await sleep(delay);
-    text.innerHTML = "Google PageSpeed gave me 99";
+    text.innerHTML = 'Google PageSpeed gave me 99';
     await sleep(delay);
-    text.innerHTML = "Somebody, click Reload!!!";
+    text.innerHTML = 'Somebody, click Reload!!!';
     btnReload.style.display = 'block';
   }
 }
@@ -37,14 +37,14 @@ async function checkLocalStorage() {
   var reloadStorage = localStorage.getItem('reload');
   var isSecondLoad = localStorage.getItem('isSecondLoad');
 
-  if (reloadStorage) { 
-    if(isSecondLoad) {
+  if (reloadStorage) {
+    if (isSecondLoad) {
       clearTimeout(timeout);
       text.innerHTML = `Ooops something went wrong.<br>
         These devs can't do one thing right!<br>
         Click Reload now!`;
       btnReload.style.display = 'block';
-      return
+      return;
     }
     return { reloadStorage, isSecondLoad };
   }
@@ -56,7 +56,7 @@ function randomChatBoxPosition() {
   var containerWidth = Math.round(container.getBoundingClientRect().width);
   var containterHeight = Math.round(container.getBoundingClientRect().height);
 
-  for ( var i=0; i < boxes.length; i++ ) {
+  for (var i = 0; i < boxes.length; i++) {
     var currentBox = boxes[i];
     var boxWidth = Math.round(currentBox.getBoundingClientRect().width);
     var boxHeight = Math.round(currentBox.getBoundingClientRect().height);
@@ -64,8 +64,8 @@ function randomChatBoxPosition() {
     randomTop = getRandomNumber(0, containterHeight - boxHeight);
     randomLeft = getRandomNumber(0, containerWidth - boxWidth);
 
-    currentBox.style.top = Math.round(randomTop) +"px";
-    currentBox.style.left = Math.round(randomLeft) +"px";
+    currentBox.style.top = Math.round(randomTop) + 'px';
+    currentBox.style.left = Math.round(randomLeft) + 'px';
   }
 }
 
