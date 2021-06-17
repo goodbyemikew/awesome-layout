@@ -76,7 +76,7 @@ function getRandomNumber(min, max) {
 function playMusic() {
   var audio = document.getElementById('audio');
   if (audio.paused) {
-    audio.currentTime = 120;
+    audio.loop = true
     audio.play();
   }
 }

@@ -89,6 +89,7 @@ h1.glow {
 
 .song-player {
   opacity: 0;
+  position: absolute;
 }
 
 .bg-img {
