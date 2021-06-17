@@ -278,9 +278,10 @@ img {
 #them:hover {
   display: block;
   z-index: 3;
-  position: absolute;
+  position: fixed;
   right: 0;
-  bottom: 2rem;
+  bottom: 3rem;
+  width: 500px;
 }
 
 @-webkit-keyframes hvr-pulse-grow {
