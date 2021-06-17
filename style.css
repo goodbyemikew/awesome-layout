@@ -85,6 +85,38 @@ h1.glow {
   height: 100%;
 }
 
+.chicken {
+  position: absolute;
+  background-image: url('https://rinchu06.files.wordpress.com/2013/08/chicken.gif');
+  background-size: 5%;
+  background-repeat: repeat;
+  width: 50%;
+  height: 50%;
+}
+
+.duck {
+  position: absolute;
+  background-image: url('https://emojis.slackmojis.com/emojis/images/1581377532/7776/chicken.gif?1581377532');
+  background-size: 5%;
+  background-repeat: repeat;
+  width: 50%;
+  height: 50%;
+  top:50%;
+}
+
+.chicken-2,
+.duck-2 {
+  left: 50%;
+}
+
+.chicken-2 {
+  top: 50%;
+}
+
+.duck-2 {
+  top: 0;
+}
+
 @keyframes slow-load {
   0% {
     clip-path: polygon(0 0, 0 0%, 100% 0%, 100% 0);
