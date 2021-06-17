@@ -82,13 +82,17 @@ function playMusic() {
 }
 
 function showPage() {
-  localStorage.setItem('reload', 1);
-  localStorage.setItem('isSecondLoad', 1);
+  var password = prompt('Input ticket number to enter FE war area');
 
-  blockElement.remove();
-  contentContainer.style.display = 'block';
-  playMusic();
-  randomChatBoxPosition();
+  if (password.toLowerCase() === 'gbm-618') {
+    localStorage.setItem('reload', 1);
+    localStorage.setItem('isSecondLoad', 1);
+
+    blockElement.remove();
+    contentContainer.style.display = 'block';
+    playMusic();
+    randomChatBoxPosition();
+  }
 }
 
 block();
