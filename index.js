@@ -75,10 +75,11 @@ function getRandomNumber(min, max) {
 
 function playMusic() {
   var audio = document.getElementById('audio');
-  if (audio.paused) {
-    audio.currentTime = 120;
-    audio.play();
-  }
+  var source = document.querySelector('audio source');
+
+  source.src = './assets/Rick_Astley_Never_Gonna_Give_You_Up.mp3';
+  audio.load();
+  audio.play();
 }
 
 function showPage() {
