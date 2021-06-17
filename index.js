@@ -4,6 +4,8 @@ var contentContainer = document.querySelector('.body');
 var text = document.getElementById('loading-text');
 var blockElement = document.getElementById('blocker');
 var btnReload = document.getElementById('btn-reload');
+var acceptCookieElement = document.querySelector('.accept-cookie');
+var btnAcceptCookie = document.querySelector('.accept-cookie button');
 
 function sleep(ms) {
   timeout = new Promise((resolve) => setTimeout(resolve, ms));
@@ -90,10 +92,25 @@ function showPage() {
 
     blockElement.remove();
     contentContainer.style.display = 'block';
+
     playMusic();
     randomChatBoxPosition();
+
+    setTimeout(function () {
+      acceptCookieElement.classList.remove('slide-out');
+    }, 3000);
   }
 }
 
 block();
 btnReload.addEventListener('click', showPage);
+btnAcceptCookie.addEventListener('click', function () {
+  const availableEvents = ['slide-out', 'fade-out', 'slide-up', 'slide-right', 'zoom-out', 'slide-corner'];
+  const randomEventIndex = Math.floor(Math.random() * availableEvents.length);
+
+  acceptCookieElement.classList.add(availableEvents[randomEventIndex]);
+
+  setTimeout(function () {
+    acceptCookieElement.classList.remove(availableEvents[randomEventIndex]);
+  }, 1500);
+});
