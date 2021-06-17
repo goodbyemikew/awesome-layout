@@ -33,6 +33,9 @@ h1.glow {
   width: 100%;
   height: 100%;
   background: #fff;
+  display: none;
+  cursor: wait;
+  display: block;
 }
 
 #loading-text {
@@ -47,6 +50,10 @@ h1.glow {
 #btn-reload {
   font-size: 0.5rem;
   margin: 7rem auto 0;
+}
+
+.body {
+  cursor: help;
 }
 
 .loader {
@@ -105,6 +112,43 @@ h1.glow {
   }
 }
 
+footer {
+  margin-top: 40px;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+.content {
+  width: 1006px;
+  padding: 4px;
+  position: absolute;
+  background-color: white;
+  box-shadow: 0 0 3px black;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 40px;
+}
+
+.hero {
+  background-color: #a7ecef;
+  display: flex;
+  justify-content: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.hero img {
+  width: 80%;
+}
+
+#chat-boxes {
+  height: 500px;
+  position: relative;
+  background: #f8f7b3;
+}
 
 .chat-box, .chat-box:after {
   transition: all .4s ease-in-out
@@ -198,4 +242,12 @@ h1.glow {
     -webkit-transform: scale(1.1);
     transform: scale(1.1);
   }
+}
+
+.float-right {
+  float: right;
+}
+
+.float-left {
+  float: left;
 }
