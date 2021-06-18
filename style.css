@@ -81,7 +81,7 @@ h1.glow {
 .matts-cat {
   position: absolute;
   right: 5%;
-  top: 10%;
+  top: 3%;
   width: 30rem;
   transform: rotate(20deg);
   z-index: 1;
@@ -91,7 +91,7 @@ h1.glow {
 .your-beer {
   position: absolute;
   left: 5%;
-  top: 10%;
+  top: 3%;
   width: 30rem;
   transform: rotate(-20deg);
   z-index: 1;
