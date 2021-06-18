@@ -167,29 +167,6 @@ async function checkLocalStorage() {
   }
 }
 
-function randomChatBoxPosition() {
-  var boxes = document.getElementsByClassName('chat-box');
-  var container = document.getElementById('chat-boxes');
-  var containerWidth = Math.round(container.getBoundingClientRect().width);
-  var containterHeight = Math.round(container.getBoundingClientRect().height);
-
-  for (var i = 0; i < boxes.length; i++) {
-    var currentBox = boxes[i];
-    var boxWidth = Math.round(currentBox.getBoundingClientRect().width);
-    var boxHeight = Math.round(currentBox.getBoundingClientRect().height);
-
-    randomTop = getRandomNumber(0, containterHeight - boxHeight);
-    randomLeft = getRandomNumber(0, containerWidth - boxWidth);
-
-    currentBox.style.top = Math.round(randomTop) + 'px';
-    currentBox.style.left = Math.round(randomLeft) + 'px';
-  }
-}
-
-function getRandomNumber(min, max) {
-  return Math.random() * (max - min) + min;
-}
-
 function playMusic() {
   var audio = document.getElementById('audio');
   if (audio.paused) {
@@ -209,7 +186,6 @@ function showPage() {
     contentContainer.style.display = 'block';
 
     playMusic();
-    randomChatBoxPosition();
 
     setTimeout(function () {
       acceptCookieElement.classList.remove('slide-out');
