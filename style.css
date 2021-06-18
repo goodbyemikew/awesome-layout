@@ -129,7 +129,7 @@ h1.glow {
   background-size: 5%;
   background-repeat: repeat;
   clip-path: polygon(0 0, 0 100%, 0 0%, 0 0);
-  animation: slow-load 25s linear forwards;
+  animation: slow-load 50s linear forwards;
   width: 100%;
   height: 100%;
 }
